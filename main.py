@@ -58,6 +58,7 @@ def game():
 
         if answer == "a":
             comparison = "b"
+            
         else:
             comparison = "a"
 
@@ -68,9 +69,9 @@ def game():
             print("Correct! Score +1")
             score += 1
 
-            entry_a = answer_dict[answer]["entry"]
-            index_a = answer_dict[answer]["index"]
-            follower_count_a = answer_dict[answer]["followers"]
+            entry_a = answer_dict["b"]["entry"]
+            index_a = answer_dict["b"]["index"]
+            follower_count_a = answer_dict["b"]["followers"]
 
             entry_b, index_b, follower_count_b = get_random_entry(data)
 
