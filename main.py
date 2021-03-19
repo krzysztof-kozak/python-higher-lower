@@ -12,11 +12,18 @@ def game():
         if index_b != index_a:
             is_entry_unique = True
         else:
-            entry_b, index_b, follower_count_b = get_random_entry(data, "B")
+            entry_b, index_b, follower_count_b = get_random_entry(data)
 
     score = 0
     next_round = True
     while next_round:
+        is_entry_unique = False
+        while not is_entry_unique:
+            if index_b != index_a:
+                is_entry_unique = True
+            else:
+                entry_b, index_b, follower_count_b = get_random_entry(data, "B")
+
         clear()
         print(logo)
         if score > 0:
@@ -30,7 +37,7 @@ def game():
 
         is_valid_answer = False
         while not is_valid_answer:
-            if answer in 'ab':
+            if answer in 'ab' and len(answer) == 1:
                 is_valid_answer = True
             else:
                 print("\nI can only accept 'a' or 'b' as an answer, sorry! :P")
