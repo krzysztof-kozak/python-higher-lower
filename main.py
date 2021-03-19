@@ -18,14 +18,15 @@ def get_random_entry(data):
     index = randint(0, max)
 
     entry = data[index]
-    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index
+    follower_count = entry["follower_count"]
+    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index, follower_count
 
 
 # print two random entries to compare
 # make sure they are unique
 
-entry_a, currentIndex = get_random_entry(data)
-entry_b, newIndex = get_random_entry(data)
+entry_a, currentIndex, follower_count_a = get_random_entry(data)
+entry_b, newIndex, follower_count_a = get_random_entry(data)
 
 is_unique = False
 while not is_unique:
@@ -53,5 +54,11 @@ while not is_valid_answer:
     if answer in 'ab':
         is_valid_answer = True
     else:
-        print("I can only accept 'a' or 'b' as an answer, sorry! :P\n")
+        print("\nI can only accept 'a' or 'b' as an answer, sorry! :P")
         answer = input("Your answer: ").lower()
+
+# Create a score counter
+# get a follower count for each entry
+# Check user answer and update the score counter
+
+score = 0
