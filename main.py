@@ -90,8 +90,14 @@ if player_guess > other_option:
     print("Correct! Score +1")
     score += 1
 
+    entry_a = answer_dict[answer]["entry"]
+    index_a = answer_dict[answer]["index"]
+    follower_count_a = answer_dict[answer]["followers"]
+
+    entry_b, index_b, follower_count_b = get_random_entry(data)
+
 else:
-    print("WRONG!")
+    print(f"WRONG! Final score: {score}")
 
 print(follower_count_a, follower_count_b)
 print(f"You answered {answer} = {answer_dict[answer]['followers']}.")
