@@ -80,11 +80,13 @@ def game():
             print(logo)
             print(f"Wrong! Final score was: {score}")
 
+            play_again = input("\nPlay again? Type y: ").lower()
+
+            if play_again == 'y':
+                game()
+            else:
+                print("Ok, bye!")
+
 game()
 
-play_again = input("\nPlay again? Type y: ").lower()
 
-if play_again == 'y':
-    game()
-else:
-    print("Ok, bye!")
