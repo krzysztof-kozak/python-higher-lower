@@ -61,7 +61,20 @@ while not is_valid_answer:
 # get a follower count for each entry
 # Check user answer and update the score counter
 
-answer_dict = {"a": follower_count_a, "b": follower_count_b}
-print(answer_dict[answer])
-
 score = 0
+answer_dict = {"a": follower_count_a, "b": follower_count_b}
+
+if answer == "a":
+    comparison = "b"
+else:
+    comparison = "a"
+
+if answer_dict[answer] > answer_dict[comparison]:
+    print("Correct! Score +1")
+    score += 1
+else:
+    print("WRONG!")
+
+print(follower_count_a, follower_count_b)
+print(f"answer {answer} = {answer_dict[answer]}")
+print(f"score: {score}")
