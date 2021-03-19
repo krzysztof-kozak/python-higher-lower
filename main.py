@@ -4,8 +4,8 @@ from art import logo, vs
 from helper_functions import get_random_entry
 
 def game():
-    entry_a, index_a, follower_count_a = get_random_entry(data, "A")
-    entry_b, index_b, follower_count_b = get_random_entry(data, "B")
+    entry_a, index_a, follower_count_a = get_random_entry(data)
+    entry_b, index_b, follower_count_b = get_random_entry(data)
 
     is_entry_unique = False
     while not is_entry_unique:
@@ -22,9 +22,9 @@ def game():
         if score > 0:
             print(f"You are right! Current score: {score}\n")
 
-        print(f"Compare {entry_a}")
+        print(f"Compare A: {entry_a}")
         print(vs)
-        print(f"Against {entry_b}")
+        print(f"Against B: {entry_b}")
 
         answer = input("\nWho has more followers? Type a or b: ").lower()
 
@@ -65,7 +65,7 @@ def game():
             index_a = answer_dict[answer]["index"]
             follower_count_a = answer_dict[answer]["followers"]
 
-            entry_b, index_b, follower_count_b = get_random_entry(data, "B")
+            entry_b, index_b, follower_count_b = get_random_entry(data)
 
         else:
             next_round = False
