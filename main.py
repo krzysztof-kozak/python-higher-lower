@@ -25,15 +25,15 @@ def get_random_entry(data):
 # print two random entries to compare
 # make sure they are unique
 
-entry_a, currentIndex, follower_count_a = get_random_entry(data)
-entry_b, newIndex, follower_count_b = get_random_entry(data)
+entry_a, index_a, follower_count_a = get_random_entry(data)
+entry_b, index_b, follower_count_b = get_random_entry(data)
 
 is_unique = False
 while not is_unique:
-    if newIndex != currentIndex:
+    if index_b != index_a:
         is_unique = True
     else:
-        entry_b, newIndex = get_random_entry(data)
+        entry_b, index_b = get_random_entry(data)
 
 # Starting state
 # print the first screen: LOGO, entry_a VS entry_b
@@ -58,23 +58,41 @@ while not is_valid_answer:
         answer = input("Your answer: ").lower()
 
 # Create a score counter
-# get a follower count for each entry
+# Get a follower count for each entry
 # Check user answer and update the score counter
 
+# Loop the process if user guessed correctly
+# If user guessed correctly, assign the guess to answer_dict["a"] and create new entry_b
+
 score = 0
-answer_dict = {"a": follower_count_a, "b": follower_count_b}
+answer_dict = {
+    "a": {
+        "entry": entry_a,
+        "followers": follower_count_a,
+        "index": index_a,
+    },
+    "b": {
+        "entry": entry_b,
+        "followers": follower_count_b,
+        "index": index_b,
+    },
+}
 
 if answer == "a":
     comparison = "b"
 else:
     comparison = "a"
 
-if answer_dict[answer] > answer_dict[comparison]:
+player_guess = answer_dict[answer]["followers"]
+other_option = answer_dict[comparison]["followers"]
+
+if player_guess > other_option:
     print("Correct! Score +1")
     score += 1
+
 else:
     print("WRONG!")
 
 print(follower_count_a, follower_count_b)
-print(f"answer {answer} = {answer_dict[answer]}")
+print(f"You answered {answer} = {answer_dict[answer]['followers']}.")
 print(f"score: {score}")
