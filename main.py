@@ -6,10 +6,10 @@ from helper_functions import get_random_entry
 entry_a, index_a, follower_count_a = get_random_entry(data, "A")
 entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
-is_unique = False
-while not is_unique:
+is_entry_unique = False
+while not is_entry_unique:
     if index_b != index_a:
-        is_unique = True
+        is_entry_unique = True
     else:
         entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
