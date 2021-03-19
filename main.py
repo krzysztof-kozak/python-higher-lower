@@ -14,12 +14,17 @@ from random import randint
 def get_random_entry(data):
     max = len(data) - 1
     random_index = randint(0, max)
-    return data[random_index]
+
+    entry = data[random_index]
+    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}."
 
 
-entry = get_random_entry(data)
-print(f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.")
+print(get_random_entry(data))
 
+
+
+# print two random entries to compare
+    # make sure they are unique 
 
 
 
