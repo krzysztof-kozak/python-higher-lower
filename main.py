@@ -13,13 +13,15 @@ from random import randint
 # create a function that returns an f string with a random entry
 def get_random_entry(data):
     max = len(data) - 1
-    random_index = randint(0, max)
+    index = randint(0, max)
 
-    entry = data[random_index]
-    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}."
+    entry = data[index]
+    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index
 
 
-print(get_random_entry(data))
+some_entry, currentIndex = get_random_entry(data)
+print(some_entry, currentIndex)
+
 
 
 
