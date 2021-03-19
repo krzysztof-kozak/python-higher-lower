@@ -13,27 +13,27 @@ from art import logo, vs
 
 
 # create a function that returns an f string with a random entry
-def get_random_entry(data):
+def get_random_entry(data, label):
     max = len(data) - 1
     index = randint(0, max)
 
     entry = data[index]
     follower_count = entry["follower_count"]
-    return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index, follower_count
+    return f"Compare {label}: {entry['name']}, a {entry['description']}, from {entry['country']}.", index, follower_count
 
 
 # print two random entries to compare
 # make sure they are unique
 
-entry_a, index_a, follower_count_a = get_random_entry(data)
-entry_b, index_b, follower_count_b = get_random_entry(data)
+entry_a, index_a, follower_count_a = get_random_entry(data, "A")
+entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
 is_unique = False
 while not is_unique:
     if index_b != index_a:
         is_unique = True
     else:
-        entry_b, index_b = get_random_entry(data)
+        entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
 # Starting state
 # print the first screen: LOGO, entry_a VS entry_b
@@ -94,7 +94,7 @@ if player_guess > other_option:
     index_a = answer_dict[answer]["index"]
     follower_count_a = answer_dict[answer]["followers"]
 
-    entry_b, index_b, follower_count_b = get_random_entry(data)
+    entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
 else:
     print(f"WRONG! Final score: {score}")
@@ -102,3 +102,8 @@ else:
 print(follower_count_a, follower_count_b)
 print(f"You answered {answer} = {answer_dict[answer]['followers']}.")
 print(f"score: {score}")
+
+print("\n******\n")
+
+print(f"NEW ENTRY A: {entry_a}")
+print(f"NEW ENTRY B: {entry_b}")
