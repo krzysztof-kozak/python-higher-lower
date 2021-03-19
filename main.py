@@ -19,14 +19,27 @@ def get_random_entry(data):
     return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index
 
 
-some_entry, currentIndex = get_random_entry(data)
-print(some_entry, currentIndex)
+
 
 
 
 
 # print two random entries to compare
-    # make sure they are unique 
+    # make sure they are unique
+
+entry_a, currentIndex = get_random_entry(data)
+entry_b, newIndex = get_random_entry(data)
+
+is_unique = False
+while not is_unique:
+    if newIndex != currentIndex:
+        is_unique = True
+    else:
+        entry_b, newIndex = get_random_entry(data)
+
+
+print(entry_a, currentIndex)
+print(entry_b, newIndex)
 
 
 
