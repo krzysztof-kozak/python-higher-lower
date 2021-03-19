@@ -1,21 +1,10 @@
 from replit import clear
-from random import randint
 from game_data import data
 from art import logo, vs
-
-
-def get_random_entry(data, label):
-    max = len(data) - 1
-    index = randint(0, max)
-
-    entry = data[index]
-    follower_count = entry["follower_count"]
-    return f"{label}: {entry['name']}, a {entry['description']}, from {entry['country']}.", index, follower_count
-
+from helper_functions import get_random_entry
 
 entry_a, index_a, follower_count_a = get_random_entry(data, "A")
 entry_b, index_b, follower_count_b = get_random_entry(data, "B")
-
 
 is_unique = False
 while not is_unique:
@@ -32,10 +21,9 @@ while next_round:
     if score > 0:
         print(f"You are right! Current score: {score}\n")
 
-    print(f"Compare {entry_a} {follower_count_a}")
+    print(f"Compare {entry_a}")
     print(vs)
-    print(f"Against {entry_b} {follower_count_b}")
-
+    print(f"Against {entry_b}")
 
     answer = input("\nWho has more followers? Type a or b: ").lower()
 
@@ -65,8 +53,6 @@ while next_round:
     else:
         comparison = "a"
 
-
-
     player_guess = answer_dict[answer]["followers"]
     other_option = answer_dict[comparison]["followers"]
 
@@ -77,19 +63,18 @@ while next_round:
         entry_a = answer_dict[answer]["entry"]
         index_a = answer_dict[answer]["index"]
         follower_count_a = answer_dict[answer]["followers"]
-        
+
         entry_b, index_b, follower_count_b = get_random_entry(data, "B")
 
     else:
         next_round = False
+        clear()
+        print(logo)
         print(f"Wrong! Final score was: {score}")
 
+play_again = input("\nPlay again? Type y: ")
 
-
-
-
-
-
-
-
-
+if play_again == 'y':
+    print("run the main func here!")
+else:
+    print("Ok, bye!")
