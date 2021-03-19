@@ -9,6 +9,7 @@
 
 from game_data import data
 from random import randint
+from art import logo, vs
 
 # create a function that returns an f string with a random entry
 def get_random_entry(data):
@@ -17,10 +18,6 @@ def get_random_entry(data):
 
     entry = data[index]
     return f"Compare A: {entry['name']}, a {entry['description']}, from {entry['country']}.", index
-
-
-
-
 
 
 
@@ -38,8 +35,13 @@ while not is_unique:
         entry_b, newIndex = get_random_entry(data)
 
 
-print(entry_a, currentIndex)
-print(entry_b, newIndex)
+# Starting state
+    # print the first screen: LOGO, entry_a VS entry_b
 
+print(logo)
+
+print(entry_a)
+print(vs)
+print(entry_b)
 
 
