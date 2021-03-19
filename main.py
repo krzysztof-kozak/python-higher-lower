@@ -26,7 +26,7 @@ def get_random_entry(data):
 # make sure they are unique
 
 entry_a, currentIndex, follower_count_a = get_random_entry(data)
-entry_b, newIndex, follower_count_a = get_random_entry(data)
+entry_b, newIndex, follower_count_b = get_random_entry(data)
 
 is_unique = False
 while not is_unique:
@@ -60,5 +60,8 @@ while not is_valid_answer:
 # Create a score counter
 # get a follower count for each entry
 # Check user answer and update the score counter
+
+answer_dict = {"a": follower_count_a, "b": follower_count_b}
+print(answer_dict[answer])
 
 score = 0
